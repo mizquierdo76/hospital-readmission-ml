@@ -76,17 +76,23 @@ import matplotlib.pyplot as plt
 
 st.subheader("📊 Feature Importance")
 
+fi = pd.read_csv("feature_importance_logreg.csv")
+
+# 👇 Clean names (remove ugly prefixes)
+clean_names = fi.iloc[:, 0].str.replace("cat_diag_", "", regex=False)
+clean_names = clean_names.str.replace("_", " ")
+
+# 👇 Sort and take top 10 (cleaner)
+fi_sorted = fi.copy()
+fi_sorted["clean"] = clean_names
+fi_sorted = fi_sorted.sort_values(by=fi.columns[1], ascending=False).head(10)
+
 fig, ax = plt.subplots(figsize=(8, 5))
 
-features = ["Age", "Days in Hospital", "Lab Procedures", "Medications", "Diagnoses"]
+ax.barh(fi_sorted["clean"], fi_sorted.iloc[:, 1])
 
-# 👇 FIXED LINE
-importance = model.feature_importances_[:5]
-
-ax.barh(features, importance)
-
-ax.set_xlabel("Impact on Readmission Risk")
-ax.set_title("Key Drivers of Readmission")
+ax.set_xlabel("Importance")
+ax.set_title("Top Drivers of Readmission")
 
 plt.tight_layout()
 
