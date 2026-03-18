@@ -85,7 +85,7 @@ if time_in_hospital > 5:
 
 if num_medications > 8:
     risk_factors.append(f"Medications ({num_medications}) indicate complexity")
-
+    
 if number_diagnoses > 4:
     risk_factors.append(f"Diagnoses count ({number_diagnoses}) is high")
 
