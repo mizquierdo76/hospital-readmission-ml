@@ -63,8 +63,10 @@ st.subheader("📊 Feature Importance")
 
 fi = pd.read_csv("feature_importance_logreg.csv")
 
+st.write(fi)  # 👈 shows columns (helps debug)
+
 fig, ax = plt.subplots()
-ax.barh(fi['Feature'], fi['Importance'])
+ax.barh(fi.iloc[:, 0], fi.iloc[:, 1])  # 👈 FIXED (uses first 2 columns)
 ax.set_xlabel("Importance")
 ax.set_title("Model Feature Importance")
 
