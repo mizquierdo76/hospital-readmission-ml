@@ -43,17 +43,17 @@ input_data = pd.DataFrame({
 # Predict
 import numpy as np
 
-46 if st.button("Predict Risk"):
-47     input_data = pd.DataFrame({
-48         "age": [age],
-49         "time_in_hospital": [time_in_hospital],
-50         "num_lab_procedures": [num_lab_procedures],
-51         "num_medications": [num_medications],
-52         "number_diagnoses": [number_diagnoses]
-53     })
+  if st.button("Predict Risk"):
+     input_data = pd.DataFrame({
+         "age": [age],
+         "time_in_hospital": [time_in_hospital],
+         "num_lab_procedures": [num_lab_procedures],
+         "num_medications": [num_medications],
+         "number_diagnoses": [number_diagnoses]
+     })
 
-54     prediction = model.predict(input_data)
-55     probability = model.predict_proba(input_data)[0][1]
+     prediction = model.predict(input_data)
+     probability = model.predict_proba(input_data)[0][1]
 
     st.subheader("Prediction Result")
 
