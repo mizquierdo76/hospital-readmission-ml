@@ -62,7 +62,6 @@ if st.button("Predict Risk"):
     else:
         st.success(f"✅ Low Risk ({probability:.2%})")
 
-    # 👇 ADD THIS BLOCK
     st.subheader("🧠 Key Risk Drivers")
 
     input_df = pd.DataFrame({
