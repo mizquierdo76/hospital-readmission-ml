@@ -6,7 +6,7 @@
 
 ---
 
-# hospital-readmission-ml
+# Hospital Readmission
 End-to-end machine learning application that predicts hospital readmission risk using clinical data, with a live Streamlit interface and model explainability.
 
 ## 🚀 Live Demo
