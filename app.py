@@ -43,8 +43,8 @@ input_data = pd.DataFrame({
 # Predict
 import numpy as np
 
-# ---------------- PREDICTION ----------------
 if st.button("Predict Risk"):
+    # create base input
     input_data = pd.DataFrame({
         "age": [age],
         "time_in_hospital": [time_in_hospital],
@@ -52,6 +52,15 @@ if st.button("Predict Risk"):
         "num_medications": [num_medications],
         "number_diagnoses": [number_diagnoses]
     })
+
+    # 🔥 ADD THIS PART
+    if hasattr(model, "feature_names_in_"):
+        for col in model.feature_names_in_:
+            if col not in input_data.columns:
+                input_data[col] = 0
+
+        # ensure correct order
+        input_data = input_data[model.feature_names_in_]
 
     prediction = model.predict(input_data)
     probability = model.predict_proba(input_data)[0][1]
