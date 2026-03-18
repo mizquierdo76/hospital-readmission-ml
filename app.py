@@ -43,13 +43,7 @@ input_data = pd.DataFrame({
 # Predict
 import numpy as np
 
-    if st.button("Predict Risk"):
-        input_data = np.array([[age, days, labs, meds, diagnoses]])
-
-    prediction = model.predict(input_data)
-    probability = model.predict_proba(input_data)[0][1]
-
-    if st.button("Predict Risk"):
+if st.button("Predict Risk"):
     input_data = np.array([[age, time_in_hospital, num_lab_procedures, num_medications, number_diagnoses]])
 
     prediction = model.predict(input_data)
