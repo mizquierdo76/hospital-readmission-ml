@@ -40,3 +40,17 @@ if st.button("Predict Risk"):
         st.error(f"⚠️ High Risk of Readmission ({probability:.2%})")
     else:
         st.success(f"✅ Low Risk of Readmission ({probability:.2%})")
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+st.subheader("📊 Feature Importance")
+
+fi = pd.read_csv("feature_importance_logreg.csv")
+
+fig, ax = plt.subplots()
+ax.barh(fi['Feature'], fi['Importance'])
+ax.set_xlabel("Importance")
+ax.set_title("Model Feature Importance")
+
+st.pyplot(fig)
