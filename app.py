@@ -43,7 +43,7 @@ input_data = pd.DataFrame({
 # Predict
 import numpy as np
 
-if st.button("Predict Risk"):
+iif st.button("Predict Risk"):
     input_data = np.array([[age, time_in_hospital, num_lab_procedures, num_medications, number_diagnoses]])
 
     prediction = model.predict(input_data)
@@ -55,6 +55,30 @@ if st.button("Predict Risk"):
         st.error(f"⚠️ High Risk ({probability:.2%})")
     else:
         st.success(f"✅ Low Risk ({probability:.2%})")
+
+    # 👇 KEEP EVERYTHING INSIDE THIS BLOCK
+    st.subheader("🧠 Why this prediction?")
+
+    risk_factors = []
+
+    if age > 65:
+        risk_factors.append("Older age increases readmission risk")
+
+    if time_in_hospital > 7:
+        risk_factors.append("Long hospital stay indicates higher severity")
+
+    if num_medications > 10:
+        risk_factors.append("High medication count suggests complex condition")
+
+    if number_diagnoses > 5:
+        risk_factors.append("Multiple diagnoses increase complication risk")
+
+    if len(risk_factors) > 0:
+        for factor in risk_factors:
+            st.write("•", factor)
+    else:
+        st.write("No major risk factors detected")
+        
 
 st.subheader("🧠 Why this prediction?")
 
