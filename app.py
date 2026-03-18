@@ -57,7 +57,7 @@ if st.button("Predict Risk"):
 
 st.subheader("Prediction Result")
 
-    if prediction[0] == 1:
+if prediction[0] == 1:
         st.error(f"⚠️ High Risk ({probability:.2%})")
     else:
         st.success(f"✅ Low Risk ({probability:.2%})")
