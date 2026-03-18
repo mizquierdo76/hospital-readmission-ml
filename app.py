@@ -76,23 +76,15 @@ import matplotlib.pyplot as plt
 
 st.subheader("📊 Feature Importance")
 
-fi = pd.read_csv("feature_importance_logreg.csv")
+fig, ax = plt.subplots(figsize=(8, 5))
 
-st.write(fi)  # 👈 shows columns (helps debug)
+features = ["Age", "Days in Hospital", "Lab Procedures", "Medications", "Diagnoses"]
+importance = model.coef_[0][:5]  # assumes logistic regression
 
-fig, ax = plt.subplots(figsize=(10, 12))
+ax.barh(features, importance)
 
-# Sort
-fi_sorted = fi.sort_values(by=fi.columns[1])
-
-# 👇 CLEAN FEATURE NAMES
-clean_names = fi_sorted.iloc[:, 0].str.replace("cat_diag_", "", regex=False)
-clean_names = clean_names.str.replace("_", " ")
-
-ax.barh(clean_names, fi_sorted.iloc[:, 1])
-
-ax.set_xlabel("Importance")
-ax.set_title("Model Feature Importance")
+ax.set_xlabel("Impact on Readmission Risk")
+ax.set_title("Key Drivers of Readmission")
 
 plt.tight_layout()
 
