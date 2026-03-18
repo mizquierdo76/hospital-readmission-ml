@@ -1,16 +1,11 @@
 # 🏥 Hospital Readmission Risk Predictor (Live App)
 
-🚀 **Live Demo:** https://your-streamlit-link-here.streamlit.app
+🚀 **Live Demo:**  
+👉 https://mizquierdo76-hospital-readmission-ml-app-cjzhpl.streamlit.app
 
-👉 Predict patient readmission risk in real time using machine learning
+Predict patient readmission risk in real time using machine learning.
 
 ---
-
-# Hospital Readmission
-End-to-end machine learning application that predicts hospital readmission risk using clinical data, with a live Streamlit interface and model explainability.
-
-## 🚀 Live Demo
-https://mizquierdo76-hospital-readmission-ml-app-cjzhpl.streamlit.app
 
 ## 🚀 What This App Does
 - Predicts hospital readmission risk in real time
