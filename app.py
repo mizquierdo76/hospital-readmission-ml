@@ -20,7 +20,7 @@ model = pickle.load(open("model.pkl", "rb"))
 
 st.title("🏥 Hospital Readmission Risk Predictor")
 
-st.markdown("### 🔍 Predict patient readmission risk using machine learning")
+st.markdown("### 🔍 PREDICT PATIENT READMISSION RISK USING MACHINE LEARNING")
 
 st.write("Enter patient details:")
 
