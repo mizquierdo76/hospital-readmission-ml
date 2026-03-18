@@ -79,7 +79,9 @@ st.subheader("📊 Feature Importance")
 fig, ax = plt.subplots(figsize=(8, 5))
 
 features = ["Age", "Days in Hospital", "Lab Procedures", "Medications", "Diagnoses"]
-importance = model.coef_[0][:5]  # assumes logistic regression
+
+# 👇 FIXED LINE
+importance = model.feature_importances_[:5]
 
 ax.barh(features, importance)
 
