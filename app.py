@@ -80,8 +80,13 @@ fi = pd.read_csv("feature_importance_logreg.csv")
 
 st.write(fi)  # 👈 shows columns (helps debug)
 
-fig, ax = plt.subplots(figsize=(8, 6))  # 👈 bigger + cleaner
-ax.barh(fi.iloc[:, 0], fi.iloc[:, 1])
+fig, ax = plt.subplots(figsize=(10, 12))  # 👈 BIGGER HEIGHT
+
+# Sort by importance (cleaner look)
+fi_sorted = fi.sort_values(by=fi.columns[1])
+
+ax.barh(fi_sorted.iloc[:, 0], fi_sorted.iloc[:, 1])
+
 ax.set_xlabel("Importance")
 ax.set_title("Model Feature Importance")
 
