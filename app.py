@@ -81,6 +81,7 @@ fi = pd.read_csv("feature_importance_logreg.csv")
 
 # 👇 Clean names (remove ugly prefixes)
 clean_names = fi.iloc[:, 0].str.replace("cat_diag_", "", regex=False)
+clean_names = clean_names.str.replace(r"cat_diag_\d+_", "", regex=True)
 clean_names = clean_names.str.replace("_", " ")
 
 # 👇 Sort and take top 10 (cleaner)
