@@ -43,26 +43,27 @@ input_data = pd.DataFrame({
 # Predict
 import numpy as np
 
+# ---------------- PREDICTION ----------------
 if st.button("Predict Risk"):
-     input_data = pd.DataFrame({
-         "age": [age],
-         "time_in_hospital": [time_in_hospital],
-         "num_lab_procedures": [num_lab_procedures],
-         "num_medications": [num_medications],
-         "number_diagnoses": [number_diagnoses]
-     })
+    input_data = pd.DataFrame({
+        "age": [age],
+        "time_in_hospital": [time_in_hospital],
+        "num_lab_procedures": [num_lab_procedures],
+        "num_medications": [num_medications],
+        "number_diagnoses": [number_diagnoses]
+    })
 
-     prediction = model.predict(input_data)
-     probability = model.predict_proba(input_data)[0][1]
+    prediction = model.predict(input_data)
+    probability = model.predict_proba(input_data)[0][1]
 
-st.subheader("Prediction Result")
+    st.subheader("Prediction Result")
 
-if prediction[0] == 1:
+    if prediction[0] == 1:
         st.error(f"⚠️ High Risk ({probability:.2%})")
     else:
         st.success(f"✅ Low Risk ({probability:.2%})")
 
-    # 👇 KEEP EVERYTHING INSIDE THIS BLOCK
+    # -------- EXPLANATION --------
     st.subheader("🧠 Why this prediction?")
 
     risk_factors = []
