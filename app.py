@@ -109,14 +109,6 @@ else:
         "Value": [age, time_in_hospital, num_lab_procedures, num_medications, number_diagnoses]
     })
 
-    st.dataframe(input_df)
-    st.subheader("Prediction Result")
-
-    if prediction[0] == 1:
-        st.error(f"⚠️ High Risk of Readmission ({probability:.2%})")
-    else:
-        st.success(f"✅ Low Risk of Readmission ({probability:.2%})")
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
