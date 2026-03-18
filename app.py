@@ -74,6 +74,7 @@ if st.button("Predict Risk"):
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 st.subheader("📊 Feature Importance")
 
 fi = pd.read_csv("feature_importance_logreg.csv")
