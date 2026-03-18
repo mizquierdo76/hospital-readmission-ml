@@ -12,7 +12,7 @@ st.set_page_config(
 model = pickle.load(open("model.pkl", "rb"))
 
 st.title("🏥 Hospital Readmission Risk Predictor")
-st.markdown("### 🔍 Predict patient readmission risk using machine learning")
+st.markdown("### 🔍 PREDICT PATIENT READMISSION RISK USING MACHINE LEARNING")
 
 # Inputs
 age = st.slider("Age", 20, 90, 50)
