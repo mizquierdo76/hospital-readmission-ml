@@ -4,7 +4,7 @@
 👉 https://mizquierdo76-hospital-readmission-ml-app-cjzhpl.streamlit.app
 
 ## 📊 App Preview
-![App Screenshot](readmission_by_age_chart.png)
+![App Screenshot](app_ss.png)
 
 ---
 
