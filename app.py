@@ -2,10 +2,25 @@ import streamlit as st
 import pandas as pd
 import pickle
 
+st.set_page_config(
+    page_title="Hospital Readmission Predictor",
+    layout="centered"
+)
+
+st.markdown("""
+    <style>
+    .main {
+        background-color: #f5f7fa;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Load model
 model = pickle.load(open("model.pkl", "rb"))
 
 st.title("🏥 Hospital Readmission Risk Predictor")
+
+st.markdown("### 🔍 Predict patient readmission risk using machine learning")
 
 st.write("Enter patient details:")
 
