@@ -1,7 +1,14 @@
 # hospital-readmission-ml
-Healthcare readmission risk prediction using machine learning, SQL, Power BI, and Streamlit dashboard
+End-to-end machine learning application that predicts hospital readmission risk using clinical data, with a live Streamlit interface and model explainability.
+
 ## 🚀 Live Demo
 https://mizquierdo76-hospital-readmission-ml-app-cjzhpl.streamlit.app
+
+## 🚀 What This App Does
+- Predicts hospital readmission risk in real time
+- Displays probability of readmission
+- Explains predictions using patient-specific factors
+- Visualizes key drivers of the model
 
 ## 📊 Project Overview
 This project predicts hospital readmission risk using machine learning.
