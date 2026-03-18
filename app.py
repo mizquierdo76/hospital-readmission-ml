@@ -49,6 +49,28 @@ if st.button("Predict Risk"):
     prediction = model.predict(input_data)
     probability = model.predict_proba(input_data)[0][1]
 
+    if st.button("Predict Risk"):
+    input_data = np.array([[age, time_in_hospital, num_lab_procedures, num_medications, number_diagnoses]])
+
+    prediction = model.predict(input_data)
+    probability = model.predict_proba(input_data)[0][1]
+
+    st.subheader("Prediction Result")
+
+    if prediction[0] == 1:
+        st.error(f"⚠️ High Risk ({probability:.2%})")
+    else:
+        st.success(f"✅ Low Risk ({probability:.2%})")
+
+    # 👇 ADD THIS BLOCK
+    st.subheader("🧠 Key Risk Drivers")
+
+    input_df = pd.DataFrame({
+        "Feature": ["Age", "Days in Hospital", "Lab Procedures", "Medications", "Diagnoses"],
+        "Value": [age, time_in_hospital, num_lab_procedures, num_medications, number_diagnoses]
+    })
+
+    st.dataframe(input_df)
     st.subheader("Prediction Result")
 
     if prediction[0] == 1:
@@ -65,9 +87,11 @@ fi = pd.read_csv("feature_importance_logreg.csv")
 
 st.write(fi)  # 👈 shows columns (helps debug)
 
-fig, ax = plt.subplots()
-ax.barh(fi.iloc[:, 0], fi.iloc[:, 1])  # 👈 FIXED (uses first 2 columns)
+fig, ax = plt.subplots(figsize=(8, 6))  # 👈 bigger + cleaner
+ax.barh(fi.iloc[:, 0], fi.iloc[:, 1])
 ax.set_xlabel("Importance")
 ax.set_title("Model Feature Importance")
+
+plt.tight_layout()
 
 st.pyplot(fig)
