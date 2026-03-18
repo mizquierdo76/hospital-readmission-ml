@@ -55,7 +55,7 @@ if st.button("Predict Risk"):
      prediction = model.predict(input_data)
      probability = model.predict_proba(input_data)[0][1]
 
-    st.subheader("Prediction Result")
+st.subheader("Prediction Result")
 
     if prediction[0] == 1:
         st.error(f"⚠️ High Risk ({probability:.2%})")
