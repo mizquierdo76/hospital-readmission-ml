@@ -77,26 +77,26 @@ if st.button("Predict Risk"):
 
     risk_factors = []
 
-    if age > 65:
-        risk_factors.append("Older age increases readmission risk")
+if age > 65:
+    risk_factors.append(f"Age ({age}) is above 65 → higher risk")
 
-    if time_in_hospital > 7:
-        risk_factors.append("Long hospital stay indicates higher severity")
+if time_in_hospital > 5:
+    risk_factors.append(f"Hospital stay ({time_in_hospital} days) is long")
 
-    if num_medications > 10:
-        risk_factors.append("High medication count suggests complex condition")
+if num_medications > 8:
+    risk_factors.append(f"Medications ({num_medications}) indicate complexity")
 
-    if number_diagnoses > 5:
-        risk_factors.append("Multiple diagnoses increase complication risk")
+if number_diagnoses > 4:
+    risk_factors.append(f"Diagnoses count ({number_diagnoses}) is high")
 
-    if len(risk_factors) > 0:
-        for factor in risk_factors:
-            st.write("•", factor)
-    else:
-        st.write("No major risk factors detected")
+if len(risk_factors) > 0:
+    for factor in risk_factors:
+        st.write("•", factor)
+else:
+    st.write("Patient profile shows generally low risk indicators")
         
 
-st.subheader("🧠 Why this prediction?")
+
 
 risk_factors = []
 
