@@ -3,8 +3,6 @@
 🚀 **Live Demo:**  
 👉 https://mizquierdo76-hospital-readmission-ml-app-cjzhpl.streamlit.app
 
-Predict patient readmission risk in real time using machine learning.
-
 ---
 
 ## 🚀 What This App Does
