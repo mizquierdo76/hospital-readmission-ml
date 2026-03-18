@@ -94,21 +94,7 @@ if len(risk_factors) > 0:
         st.write("•", factor)
 else:
     st.write("Patient profile shows generally low risk indicators")
-        
-
-
-
-risk_factors = []
-
-if age > 65:
-    risk_factors.append("Older age increases readmission risk")
-
-if time_in_hospital > 7:
-    risk_factors.append("Long hospital stay indicates higher severity")
-
-if num_medications > 10:
-    risk_factors.append("High medication count suggests complex condition")
-
+       
 if number_diagnoses > 5:
     risk_factors.append("Multiple diagnoses increase complication risk")
 
@@ -129,7 +115,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-st.subheader("📊 Feature Importance")
+st.subheader("📊 Model Insignts (Top Drivers)")
 
 fi = pd.read_csv("feature_importance_logreg.csv")
 
