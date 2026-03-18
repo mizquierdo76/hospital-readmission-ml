@@ -1,0 +1,3 @@
+Hospital Readmission Risk Analysis
+
+Analyzed hospital patient data from a U.S. clinical dataset containing over 100,000 patient encounters to identify factors associated with 30-day hospital readmission. Data was cleaned and prepared using Python, and exploratory analysis identified relationships between age groups, diagnoses, and readmission risk. A logistic regression model was developed to predict readmission probability and identify key predictive features. Results were visualized using charts highlighting high-risk populations and diagnosis groups.
