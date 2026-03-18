@@ -26,14 +26,17 @@ input_data = pd.DataFrame({
 })
 
 # Predict
+import numpy as np
+
 if st.button("Predict Risk"):
-    risk_score = model.predict_proba(input_data)[0][1]
+    input_data = np.array([[age, days, labs, meds, diagnoses]])
 
-    st.write(f"Risk Score: {round(risk_score * 100, 2)}%")
+    prediction = model.predict(input_data)
+    probability = model.predict_proba(input_data)[0][1]
 
-    if risk_score > 0.7:
-        st.error("High Risk Patient 🚨")
-    elif risk_score > 0.4:
-        st.warning("Moderate Risk ⚠️")
+    st.subheader("Prediction Result")
+
+    if prediction[0] == 1:
+        st.error(f"⚠️ High Risk of Readmission ({probability:.2%})")
     else:
-        st.success("Low Risk ✅")
+        st.success(f"✅ Low Risk of Readmission ({probability:.2%})")
